@@ -1,0 +1,171 @@
+<%- include('../layout') -%>
+
+<body>
+
+  <%- include('patientSideBar') -%>
+  <!-- Main content -->
+  <div class="main-content">
+    <!-- Top navbar -->
+
+    <%- include('../../partials/navbar') -%>
+    <!-- Header -->
+
+    <%- include('../../partials/headerdashboard') -%>
+    <!-- Page content -->
+    <div class="container-fluid mt--7">
+      <div class="row mt-5">
+        <div class="col-xl-12 mb-5 mb-xl-0">
+          <div class="card shadow">
+            <div class="card-header border-0">
+              <div class="row align-items-center">
+                <div class="col">
+                  <h3 class="mb-0">Medical Records</h3>
+                </div>
+              </div>
+            </div>
+            <div class="table-responsive">
+              <!-- Users table -->
+              <table class="table align-items-center table-flush">
+                <thead class="thead-light">
+                  <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">File Name</th>
+                    <th scope="col">Remove User</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <% for(var i = 0;i<sharedDocs.length;i++){ %>
+                      <tr>
+                        <th scope="row">
+                            <%= sharedDocs[i].filename %>
+                        </th>
+                        <td>
+                          <%= sharedDocs[i].filepath %>
+                        </td>
+                        <td>
+                          <a href="/unshare/<%= sharedDocs[i].filename%>" class="btn btn-sm btn-primary">Unshare</a>
+                        </td>
+                      </tr>
+                    <% } %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-5">
+        <div class="col-xl-12 mb-5 mb-xl-0">
+          <div class="card shadow">
+            <div class="card-header border-0">
+              <div class="row align-items-center">
+                <div class="col">
+                  <h3 class="mb-0"> Unshared Medical Records</h3>
+                </div>
+              </div>
+            </div>
+            <div class="table-responsive">
+              <!-- Users table -->
+              <table class="table align-items-center table-flush">
+                <thead class="thead-light">
+                  <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">File Name</th>
+                    <th scope="col">Remove User</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <% for(var i = 0;i<notSharedDocs.length;i++){ %>
+                      <tr>
+                        <th scope="row">
+                            <%= notSharedDocs[i].filename %>
+                        </th>
+                        <td>
+                          <%= notSharedDocs[i].filepath %>
+                        </td>
+                        <td>
+                          <a href="/hospital/<%= notSharedDocs[i].filename%>/<%= orgUsers[0].email%>" class="btn btn-sm btn-primary">Share</a>
+                        </td>
+                      </tr>
+                    <% } %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-5">
+
+      <!-- Hospital Informations -->
+      <div class="col-xl-6 ">
+        <div class="card bg-secondary shadow">
+          <div class="card-header bg-white border-0">
+            <div class="row align-items-center">
+              <div class="col">
+                <h3 class="mb-0"><%= orgUsers[0].firstname %> Information</h3>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-body">
+            <div class="container text-center">
+              <div class="row">
+                <div class="col text-left">
+                  Organization Name : <%= orgUsers[0].firstname %>
+                </div>
+                <div class="col text-left">
+                  Phone No: <%= orgUsers[0].phone %>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col text-left">
+                  Type : <%= orgUsers[0].type %>
+                </div>
+                <div class="col text-left">
+                  Zip Code: <%= orgUsers[0].zipcode %>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col text-left">
+                  Address: <%= orgUsers[0].address %>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col text-left">
+                  State : <%= orgUsers[0].state %>
+                </div>
+                <div class="col text-left">
+                  City: <%= orgUsers[0].city %>
+                </div>
+                <div class="col text-left">
+                  Country: <%= orgUsers[0].country %>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col text-left">
+                  Email : <%= orgUsers[0].email %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      </div>
+
+
+    </div>
+
+
+    <!-- Footer -->
+    <%- include('../../partials/footerdashboard') -%>
+
+  </div>
+
+  <!-- Include scripts -->
+  <%- include('../../partials/scripts') -%>
+</body>
+
+</html>

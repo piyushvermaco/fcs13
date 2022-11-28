@@ -1,0 +1,82 @@
+<%- include('../layout') -%>
+<body>
+
+  <%- include('../../partials/adminDashboard/adminSideBar') -%>
+  <!-- Main content -->
+  <div class="main-content">
+    <!-- Top navbar -->
+
+    <%- include('../../partials/navbar') -%>
+    <!-- Header -->
+
+    <%- include('../../partials/headerdashboard') -%>
+    <!-- Page content -->
+    <div class="container-fluid mt--7">
+
+      <!-- Approve Users Table -->
+      <div class="row mt-5">
+        <div class="col">
+          <div class="card bg-default shadow">
+            <div class="card-header bg-transparent border-0">
+              <h3 class="text-white mb-0">Remove Users</h3>
+            </div>
+            <div class="table-responsive">
+              <table class="table align-items-center table-dark table-flush">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Remove User</th>
+                  </tr>
+                </thead>
+                <tbody>
+
+                    <% for(var i = 0;i<indUsers.length;i++){ %>
+                      <tr>
+                        <th scope="row">
+                            <%= indUsers[i].firstname + " " + indUsers[i].lastname %>
+                        </th>
+                        <td>
+                          <%= indUsers[i].type %>
+                        </td>
+                        <td>
+                          <%= indUsers[i].email %>
+                        </td>
+                        <td>
+                          <a href="/admin/delete/individual/<%= indUsers[i].email%>" class="btn btn-sm btn-primary">Remove</a>
+                        </td>
+                      </tr>
+                    <% } %>
+                    <% for(var i = 0;i<orgUsers.length;i++){ %>
+                      <tr>
+                        <th scope="row">
+                            <%= orgUsers[i].firstname %>
+                        </th>
+                        <td>
+                          <%= orgUsers[i].type %>
+                        </td>
+                        <td>
+                          <%= orgUsers[i].email %>
+                        </td>
+                        <td>
+                          <a href="/admin/delete/organisation/<%= orgUsers[i].email%>" class="btn btn-sm btn-primary">Remove</a>
+                        </td>
+                      </tr>
+                    <% } %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Footer -->
+      <%- include('../../partials/footerdashboard') -%>
+
+    </div>
+  </div>
+  <!-- Include scripts -->
+  <%- include('../../partials/scripts') -%>
+</body>
+
+</html>

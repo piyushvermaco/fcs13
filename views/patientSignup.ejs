@@ -1,0 +1,123 @@
+<%- include('partials/header') -%>
+
+
+      <section class="login-page">
+        <div class="container h-200">
+          <div class="row justify-content-md-center h-200">
+            <div class="signupcard-wrapper">
+              <div class="card fat">
+                <div class="card-body">
+                  <h4 class="card-title">INDIVIDUAL REGISTER</h4>
+                  <form method="POST" action="/patientSignup" class="my-login-validation" novalidate="">
+                    <input type="hidden" value="<%= csrfToken %>" name="_csrf">
+                    <div class="form-group row">
+                      <div class="col">
+                        <label for="firstName" class="form-label">First Name</label>
+                        <input name="firstName" type="text" class="form-control" placeholder="First name" aria-label="First name">
+                      </div>
+                      <div class="col">
+                        <label for="lastName" class="form-label">Last Name</label>
+                        <input name="lastName" type="text" class="form-control" placeholder="Last name" aria-label="Last name">
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <div class="col">
+                        <label for="phone" class="form-label">Phone No.</label>
+                        <input name="phoneNumber" type="number" class="form-control" placeholder="Phone NO" aria-label="Phone NO">
+                      </div>
+                      <div class="col">
+                        <label for="gender" class="form-label">Gender</label>
+                        <input name="gender" type="text" class="form-control" placeholder="Gender" aria-label="Gender">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="orgType">Individual Type</label>
+                      <select class="form-control" name="orgType"  id="orgType">
+                          <option value="Patient">Paitient</option>
+                          <!-- Line Changed! -->
+                          <option value="Healthcare">Healthcare professionals</option>
+                      </select>
+                    </div>
+
+
+                    <div class="form-group row">
+                      <div class="col-12">
+                        <label for="inputAddress" class="form-label">Address</label>
+                        <input name="address" type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <div class="col-md-6">
+                        <label for="inputZip" class="form-label">Zip Code</label>
+                        <input name="zipCode" type="text" class="form-control" id="inputZip">
+                      </div>
+
+                      <div class="col-md-6">
+                        <label for="inputState" class="form-label">State</label>
+                        <input name="state" type="text" class="form-control" id="inputState">
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <div class="col-md-6">
+                        <label for="inputCity" class="form-label">City</label>
+                        <input name="city" type="text" class="form-control" id="inputCity">
+                      </div>
+                      <div class="col-md-6">
+                        <label for="inputCountry" class="form-label">Country</label>
+                        <input name="country" type="text" class="form-control" id="inputCountry">
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <div class="col-md-12">
+                        <label for="inputDOB" class="form-label">Date of Birth</label>
+                        <input name="dob" type="date" class="form-control" id="inputDOB">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="email">E-Mail Address</label>
+                      <input id="email" type="email" class="form-control" name="email" value="" required autofocus>
+                      <div class="invalid-feedback">
+                        Email is invalid
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="password">Password</label>
+                      <input id="password" type="password" class="form-control" name="password" required data-eye>
+                      <div class="invalid-feedback">
+                        Password is required
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="confirm_password">Confirm Password</label>
+                      <input id="confirm_password" type="password" class="form-control" name="confirm_password" required data-eye>
+                      <div class="invalid-feedback">
+                        Password is required
+                      </div>
+                    </div>
+
+                    <div class="form-group m-0">
+                      <button type="submit" class="btn btn-primary btn-block">
+                        Continue
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+
+  </section>
+
+  <%- include('partials/footer') -%>

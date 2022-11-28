@@ -1,0 +1,189 @@
+<%- include('../layout') -%>
+
+<body>
+
+  <%- include('../../partials/adminDashboard/adminSideBar') -%>
+  <!-- Main content -->
+  <div class="main-content">
+    <!-- Top navbar -->
+
+    <%- include('../../partials/navbar') -%>
+    <!-- Header -->
+
+    <%- include('../../partials/headerdashboard') -%>
+    <!-- Page content -->
+    <div class="container-fluid mt--7">
+      <div class="row">
+
+        <!-- Users Documents -->
+
+        <div class="col-xl-6 order-xl-1">
+          <div class="card bg-secondary shadow">
+            <div class="card-header bg-white border-0">
+              <div class="row align-items-center">
+                <div class="col-4">
+                  <h3 class="mb-0"><%= indUsers[0].firstname %>  <%= indUsers[0].lastname %> Documents</h3>
+                </div>
+                <div class="col-4 text-right">
+                  <a class="btn btn-primary btn-block" href="/approveusers/<%=indUsers[0].email%>">APPROVE</a>
+                </div>
+
+                <div class="col-4 text-right">
+                  <button type="submit" class="btn btn-primary btn-block" href="/disapproveusers/<%=indUsers[0].email%>">DISAPPROVE</button>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <h6 class="heading text-muted mb-4"><%= indUsers[0].firstname %>  <%= indUsers[0].lastname %> Photo</h6>
+              <div class="pl-lg-4">
+                <div class="row">
+                  <p>Open <%= indUsers[0].firstname %>  <%= indUsers[0].lastname %>'s <a href="/admin/<%= indDoc[0].phototype %>/<%= indDoc[0].photoname %>">Profile</a> Photo To Verify</p>
+                </div>
+              </div>
+              <h6 class="heading text-muted mb-4"><%= indUsers[0].firstname %>  <%= indUsers[0].lastname %> Adhaar</h6>
+              <div class="pl-lg-4">
+                <div class="row">
+                  <p>Open <%= indUsers[0].firstname %>  <%= indUsers[0].lastname %>'s <a href="/admin/<%= indDoc[0].idprooftype %>/<%= indDoc[0].idproofname %>">Adhaar</a> To Verify</p>
+                </div>
+              </div>
+              <h6 class="heading text-muted mb-4"><%= indUsers[0].firstname %>  <%= indUsers[0].lastname %> Address Proof</h6>
+              <div class="pl-lg-4">
+                <div class="row">
+                  <p>Open <%= indUsers[0].firstname %>  <%= indUsers[0].lastname %>'s <a href="/admin/<%= indDoc[0].addrprooftype %>/<%= indDoc[0].addrproofname %>">Address Proof</a> To Verify</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Users Informations -->
+        <div class="col-xl-6 ">
+          <div class="card bg-secondary shadow">
+            <div class="card-header bg-white border-0">
+              <div class="row align-items-center">
+                <div class="col">
+                  <h3 class="mb-0"><%= indUsers[0].firstname %>  <%= indUsers[0].lastname %> Information</h3>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-body">
+              <div class="container text-center">
+                <div class="row">
+                  <div class="col text-left">
+                    Name : <%= indUsers[0].firstname %>  <%= indUsers[0].lastname %>
+                  </div>
+                  <div class="col text-left">
+                    Phone No: <%= indUsers[0].phone %>
+                  </div>
+                  <div class="col text-left">
+                    Gender: <%= indUsers[0].gender %>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col text-left">
+                    Type : <%= indUsers[0].type %>
+                  </div>
+                  <div class="col text-left">
+                    Zip Code: <%= indUsers[0].zipcode %>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col text-left">
+                    Address: <%= indUsers[0].address %>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col text-left">
+                    State : <%= indUsers[0].state %>
+                  </div>
+                  <div class="col text-left">
+                    City: <%= indUsers[0].city %>
+                  </div>
+                  <div class="col text-left">
+                    Country: <%= indUsers[0].country %>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col text-left">
+                    DOB : <%= indUsers[0].dob %>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col text-left">
+                    Email : <%= indUsers[0].email %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+
+        <!-- Medical Documents -->
+        <div class="row mt-5">
+          <div class="col-xl-12 mb-5 mb-xl-0">
+            <div class="card shadow">
+              <div class="card-header border-0">
+                <div class="row align-items-center">
+                  <div class="col">
+                    <h3 class="mb-0"> Registered</h3>
+                  </div>
+                  <div class="col text-right">
+                    <a href="#!" class="btn btn-sm btn-primary">See all</a>
+                  </div>
+                </div>
+              </div>
+              <div class="table-responsive">
+                <!-- Users table -->
+                <table class="table align-items-center table-flush">
+                  <thead class="thead-light">
+                    <tr>
+                      <th scope="col">User info</th>
+                      <th scope="col">Category</th>
+                      <th scope="col">Email</th>
+                      <th scope="col">Private Key</th>
+                      <th scope="col">See Documents</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">
+                        Piyush Verma
+                      </th>
+                      <td>
+                        Paitent
+                      </td>
+                      <td>
+                        piyush20097@iiitd.ac.in
+                      </td>
+                      <td>
+                        3SFFSDSF84N39HR2NR9H9SF
+                      </td>
+                      <td>
+                        <a href="/userDocuments" class="btn btn-sm btn-primary">See all</a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+    </div>
+    <!-- Footer -->
+    <%- include('../../partials/footerdashboard') -%>
+
+  </div>
+
+  <!-- Include scripts -->
+  <%- include('../../partials/scripts') -%>
+</body>
+
+</html>

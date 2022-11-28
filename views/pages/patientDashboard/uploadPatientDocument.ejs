@@ -1,0 +1,59 @@
+<%- include('../layout') -%>
+<body>
+
+  <%- include('patientSideBar') -%>
+  <!-- Main content -->
+  <div class="main-content">
+    <!-- Top navbar -->
+
+    <%- include('../../partials/navbar') -%>
+    <!-- Header -->
+
+    <%- include('../../partials/headerdashboard') -%>
+    <!-- Page content -->
+    <div class="container-fluid mt--7">
+      <div class="row">
+
+        <div class="col-xl-12 order-xl-1">
+          <div class="card bg-secondary shadow">
+            <div class="card-header bg-white border-0">
+              <div class="row align-items-center">
+                <div class="col-8">
+                  <h3 class="mb-0">Upload Documents</h3>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <form method="POST" action="/updatePatientDocument" method="POST" enctype="multipart/form-data">
+                <input type="hidden" value="<%= csrfToken %>" name="_csrf">
+                  <div class="form-group">
+                    <label for="filename">Enter Document Name</label>
+                    <input id="filename" type="text" class="form-control" name="filename" value="" required autofocus>
+                  </div>
+                  <div class="form-group">
+                    <div class="form-group">
+                      <label for="patientAddressProof">Upload Document</label>
+                      <input type="file" class="form-control-file" id="patientAddressProof" name="healthrecord" accept="application/pdf,application/vnd.ms-excel">
+                    </div>
+                  </div>
+
+                  <div class="form-group m-0">
+                    <button type="submit" class="btn btn-primary btn-block" href="/otpverify">
+                      Upload
+                    </button>
+                  </div>
+                </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Footer -->
+      <%- include('../../partials/footerdashboard') -%>
+
+    </div>
+  </div>
+  <!-- Include scripts -->
+  <%- include('../../partials/scripts') -%>
+</body>
+
+</html>

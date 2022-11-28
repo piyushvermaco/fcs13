@@ -1,0 +1,126 @@
+<%- include('../layout') -%>
+
+<body>
+
+  <%- include('../../partials/adminDashboard/adminSideBar') -%>
+  <!-- Main content -->
+  <div class="main-content">
+    <!-- Top navbar -->
+
+    <%- include('../../partials/headerdashboard') -%>
+    <!-- Page content -->
+    <div class="container-fluid mt--7">
+      <div class="row">
+
+        <!-- Users Documents -->
+
+        <div class="col-xl-6 ">
+          <div class="card bg-secondary shadow">
+            <div class="card-header bg-white border-0">
+              <div class="row align-items-center">
+                <div class="col-4">
+                  <h3 class="mb-0"><%= orgUsers[0].firstname %>  <%= orgUsers[0].lastname %> Documents</h3>
+                </div>
+                <div class="col-4 text-right">
+                  <a type="submit" class="btn btn-primary" href="/approveorg/<%=orgUsers[0].email%>">APPROVE</a>
+                </div>
+
+                <div class="col-4 text-right">
+                  <a type="submit" class="btn btn-primary btn-block" href="/disapproveusers<%=orgUsers[0].email%>">DISAPPROVE</a>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <h6 class="heading text-muted mb-4"><%= orgUsers[0].firstname %> Photo</h6>
+              <div class="pl-lg-4">
+                <div class="row">
+                  <p>Open <%= orgUsers[0].firstname %>'s <a href="/admin/<%= orgDoc[0].phototype %>/<%= orgDoc[0].photoname %>">Profile</a> Photo To Verify</p>
+                </div>
+              </div>
+              <h6 class="heading text-muted mb-4"><%= orgUsers[0].firstname %> Adhaar</h6>
+              <div class="pl-lg-4">
+                <div class="row">
+                  <p>Open <%= orgUsers[0].firstname %>'s <a href="/admin/<%= orgDoc[0].idprooftype %>/<%= orgDoc[0].idproofname %>">Adhaar</a> To Verify</p>
+                </div>
+              </div>
+              <h6 class="heading text-muted mb-4"><%= orgUsers[0].firstname %> Address Proof</h6>
+              <div class="pl-lg-4">
+                <div class="row">
+                  <p>Open <%= orgUsers[0].firstname %>'s <a href="/admin/<%= orgDoc[0].addrprooftype %>/<%= orgDoc[0].addrproofname %>">Address Proof</a> To Verify</p>
+                </div>
+              </div>
+
+              <h6 class="heading text-muted mb-4"><%= orgUsers[0].firstname %> Health License</h6>
+              <div class="pl-lg-4">
+                <div class="row">
+                  <p>Open <%= orgUsers[0].firstname %>'s <a href="/admin/<%= orgDoc[0].lictype %>/<%= orgDoc[0].licname %>">Health License </a> To Verify</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Users Informations -->
+        <div class="col-xl-6 ">
+          <div class="card bg-secondary shadow">
+            <div class="card-header bg-white border-0">
+              <div class="row align-items-center">
+                <div class="col">
+                  <h3 class="mb-0"><%= orgUsers[0].firstname %> Information</h3>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-body">
+              <div class="container text-center">
+                <div class="row">
+                  <div class="col text-left">
+                    Organization Name : <%= orgUsers[0].firstname %>
+                  </div>
+                  <div class="col text-left">
+                    Phone No: <%= orgUsers[0].phone %>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col text-left">
+                    Type : <%= orgUsers[0].type %>
+                  </div>
+                  <div class="col text-left">
+                    Zip Code: <%= orgUsers[0].zipcode %>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col text-left">
+                    Address: <%= orgUsers[0].address %>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col text-left">
+                    State : <%= orgUsers[0].state %>
+                  </div>
+                  <div class="col text-left">
+                    City: <%= orgUsers[0].city %>
+                  </div>
+                  <div class="col text-left">
+                    Country: <%= orgUsers[0].country %>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col text-left">
+                    Email : <%= orgUsers[0].email %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Include scripts -->
+  <%- include('../../partials/scripts') -%>
+</body>
+
+</html>

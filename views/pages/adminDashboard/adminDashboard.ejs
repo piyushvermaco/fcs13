@@ -1,0 +1,85 @@
+<%- include('../layout') -%>
+
+<body>
+
+  <%- include('../../partials/adminDashboard/adminSideBar') -%>
+  <!-- Main content -->
+  <div class="main-content">
+    <!-- Top navbar -->
+
+    <%- include('../../partials/navbar') -%>
+    <!-- Header -->
+    <%- include('../../partials/headerdashboard') -%>
+    <!-- Page content -->
+    <div class="container-fluid mt--7">
+
+      <div class="row mt-5">
+        <div class="col-xl-12 mb-5 mb-xl-0">
+          <div class="card shadow">
+            <div class="card-header border-0">
+              <div class="row align-items-center">
+                <div class="col">
+                  <h3 class="mb-0">User Registered</h3>
+                </div>
+              </div>
+            </div>
+            <div class="table-responsive">
+              <!-- Users table -->
+              <table class="table align-items-center table-flush">
+
+                <thead class="thead-light">
+                  <tr>
+                    <th scope="col">User info</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">See Documents</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% for(var i = 0;i<indUsers.length;i++){ %>
+                    <tr>
+                      <th scope="row">
+                          <%= indUsers[i].firstname + " " + indUsers[i].lastname %>
+                      </th>
+                      <td>
+                        <%= indUsers[i].type %>
+                      </td>
+                      <td>
+                        <%= indUsers[i].email %>
+                      </td>
+                      <td>
+                        <a href="/admin/individual/<%= indUsers[i].email %>" class="btn btn-sm btn-primary">See all</a>
+                      </td>
+                    </tr>
+                  <% } %>
+                  <% for(var i = 0;i<orgUsers.length;i++){ %>
+                    <tr>
+                      <th scope="row">
+                          <%= orgUsers[i].firstname %>
+                      </th>
+                      <td>
+                        <%= orgUsers[i].type %>
+                      </td>
+                      <td>
+                        <%= orgUsers[i].email %>
+                      </td>
+                      <td>
+                        <a href="/admin/organisation/<%= orgUsers[i].email %>" class="btn btn-sm btn-primary">See all</a>
+                      </td>
+                    </tr>
+                  <% } %>
+                </tbody>
+
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- Include scripts -->
+  <%- include('../../partials/scripts') -%>
+</body>
+
+</html>

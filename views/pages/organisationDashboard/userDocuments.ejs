@@ -1,0 +1,169 @@
+<%- include('../layout') -%>
+
+<body>
+
+  <%- include('../../partials/adminDashboard/adminSideBar') -%>
+  <!-- Main content -->
+  <div class="main-content">
+    <!-- Top navbar -->
+
+    <%- include('../../partials/navbar') -%>
+    <!-- Header -->
+
+    <%- include('../../partials/headerdashboard') -%>
+    <!-- Page content -->
+    <div class="container-fluid mt--7">
+      <div class="row">
+
+        <!-- Users Documents -->
+
+        <div class="col-xl-6 order-xl-1">
+          <div class="card bg-secondary shadow">
+            <div class="card-header bg-white border-0">
+              <div class="row align-items-center">
+                <div class="col-4">
+                  <h3 class="mb-0">User Documents</h3>
+                </div>
+                <div class="col-4 text-right">
+                  <button type="submit" class="btn btn-primary btn-block" href="/otpverify">APPROVE</button>
+                </div>
+
+                <div class="col-4 text-right">
+                  <button type="submit" class="btn btn-primary btn-block" href="/otpverify">DISAPPROVE</button>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <h6 class="heading text-muted mb-4">User Photo</h6>
+              <div class="pl-lg-4">
+                <div class="row">
+                  <p>Open User's <a href="img\theme\team-3-800x800.jpg">Profile</a> Photo To Verify</p>
+                </div>
+              </div>
+              <h6 class="heading text-muted mb-4">User Adhaar</h6>
+              <div class="pl-lg-4">
+                <div class="row">
+                  <p>Open Users's <a href="example.pdf">Adhaar</a> To Verify</p>
+                </div>
+              </div>
+              <h6 class="heading text-muted mb-4">User Address Proof</h6>
+              <div class="pl-lg-4">
+                <div class="row">
+                  <p>Open Users's <a href="example.pdf">Address Proof</a> To Verify</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Users Informations -->
+        <div class="col-xl-6 ">
+          <div class="card bg-secondary shadow">
+            <div class="card-header bg-white border-0">
+              <div class="row align-items-center">
+                <div class="col-4">
+                  <h3 class="mb-0">User Information</h3>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-body">
+
+              <div class="pl-lg-4">
+                <div class="row">
+                  <form method="POST" action="/patientSignup" class="my-login-validation" novalidate="">
+                    <div class="form-group row">
+                      <div class="col">
+                        <label for="firstName" class="form-label">First Name</label>
+                        <input name="firstName" type="text" class="form-control" placeholder="First name" aria-label="First name">
+                      </div>
+                      <div class="col">
+                        <label for="lastName" class="form-label">Last Name</label>
+                        <input name="lastName" type="text" class="form-control" placeholder="Last name" aria-label="Last name">
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <div class="col">
+                        <label for="phone" class="form-label">Phone No.</label>
+                        <input name="phoneNumber" type="number" class="form-control" placeholder="Phone NO" aria-label="Phone NO">
+                      </div>
+                      <div class="col">
+                        <label for="gender" class="form-label">Gender</label>
+                        <input name="gender" type="text" class="form-control" placeholder="Gender" aria-label="Gender">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="orgType">Individual Type</label>
+                      <select class="form-control" id="orgType">
+                        <option>Paitient</option>
+                        <option>Healthcare professionals</option>
+                      </select>
+                    </div>
+
+
+                    <div class="form-group row">
+                      <div class="col-12">
+                        <label for="inputAddress" class="form-label">Address</label>
+                        <input name="address" type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <div class="col-md-6">
+                        <label for="inputZip" class="form-label">Zip Code</label>
+                        <input name="zipCode" type="text" class="form-control" id="inputZip">
+                      </div>
+
+                      <div class="col-md-6">
+                        <label for="inputState" class="form-label">State</label>
+                        <input name="state" type="text" class="form-control" id="inputState">
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <div class="col-md-6">
+                        <label for="inputCity" class="form-label">City</label>
+                        <input name="city" type="text" class="form-control" id="inputCity">
+                      </div>
+                      <div class="col-md-6">
+                        <label for="inputCountry" class="form-label">Country</label>
+                        <input name="country" type="text" class="form-control" id="inputCountry">
+                      </div>
+                    </div>
+
+                    <div class="form-group row ">
+                      <div class="col-md-12">
+                        <label for="inputDOB" class="form-label">Date of Birth</label>
+                        <input name="dob" type="date" class="form-control" id="inputDOB">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="email">E-Mail Address</label>
+                      <input id="email" type="email" class="form-control" name="email" value="" required autofocus>
+                      <div class="invalid-feedback">
+                        Email is invalid
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+    <!-- Footer -->
+    <%- include('../../partials/footerdashboard') -%>
+
+  </div>
+
+  <!-- Include scripts -->
+  <%- include('../../partials/scripts') -%>
+</body>
+
+</html>

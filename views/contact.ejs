@@ -1,0 +1,56 @@
+<%- include('partials/header') -%> 
+
+      <section class="login-page">
+        <div class="container h-200">
+          <div class="row justify-content-md-center h-100">
+            <div class="card-wrapper">
+              <div class="card fat">
+                <div class="card-body">
+                  <h4 class="card-title">Contact Us</h4>
+                  <form method="POST" action="/contact" class="my-login-validation" novalidate="">
+                    <input type="hidden" value="<%= csrfToken %>" name="_csrf">
+                    <div class="form-group row">
+                      <div class="col">
+                        <label for="name" class="form-label">Your Name</label>
+                        <input name="name" type="text" class="form-control" placeholder="Name" aria-label="name">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="email">Your E-Mail Address</label>
+                      <input id="email" type="email" class="form-control" name="email" value="" required autofocus>
+                      <div class="invalid-feedback">
+                        Email is invalid
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <div class="col">
+                        <label for="phone" class="form-label">Phone No.</label>
+                        <input name="phoneNumber" type="number" class="form-control" placeholder="Phone NO" aria-label="Phone NO">
+                      </div>
+                    </div>
+
+
+
+                    <div class="form-group m-0">
+                      <button type="submit" class="btn btn-primary btn-block">
+                        Send
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+
+  </section>
+
+<%- include('partials/footer') -%> 
+
+
+
